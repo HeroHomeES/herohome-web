@@ -3,7 +3,7 @@
 import { useState, FormEvent } from 'react'
 import { pushEvent } from '@/lib/gtm'
 
-const WEBHOOK_URL = 'https://hook.eu2.make.com/PLACEHOLDER'
+const API_URL = '/api/contacto'
 
 export default function ContactForm() {
   const [form, setForm] = useState({ nombre: '', telefono: '', email: '', ciudad: '' })
@@ -17,10 +17,10 @@ export default function ContactForm() {
     e.preventDefault()
     setStatus('loading')
     try {
-      await fetch(WEBHOOK_URL, {
+      await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ source: 'web-contacto', ...form }),
+        body: JSON.stringify(form),
       })
       pushEvent('conversion_contacto', { form_type: 'contacto' })
       setStatus('success')

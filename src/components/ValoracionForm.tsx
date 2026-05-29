@@ -4,7 +4,7 @@ import { useState, FormEvent } from 'react'
 import Link from 'next/link'
 import { pushEvent } from '@/lib/gtm'
 
-const WEBHOOK_URL = 'https://hook.eu2.make.com/PLACEHOLDER'
+const API_URL = '/api/valoracion'
 
 type TipoVivienda = 'Piso' | 'Casa/Chalet' | 'Ático' | 'Dúplex' | 'Estudio' | 'Otro'
 const TIPOS: TipoVivienda[] = ['Piso', 'Casa/Chalet', 'Ático', 'Dúplex', 'Estudio', 'Otro']
@@ -33,11 +33,10 @@ export default function ValoracionForm() {
     e.preventDefault()
     setStatus('loading')
     try {
-      await fetch(WEBHOOK_URL, {
+      await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          source: 'web-valoracion',
           tipo: form.tipo,
           direccion: form.direccion,
           metros: form.metros,
