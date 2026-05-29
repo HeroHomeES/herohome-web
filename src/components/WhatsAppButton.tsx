@@ -1,5 +1,7 @@
 'use client'
 
+import { pushEvent } from '@/lib/gtm'
+
 export default function WhatsAppButton() {
   return (
     <a
@@ -8,6 +10,7 @@ export default function WhatsAppButton() {
       rel="noopener noreferrer"
       aria-label="Contactar por WhatsApp"
       data-gtm="cta-whatsapp"
+      onClick={() => pushEvent('conversion_whatsapp', { cta: 'flotante' })}
       style={{
         position: 'fixed',
         bottom: 24,

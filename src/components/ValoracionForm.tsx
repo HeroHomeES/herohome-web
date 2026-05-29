@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from 'react'
 import Link from 'next/link'
+import { pushEvent } from '@/lib/gtm'
 
 const WEBHOOK_URL = 'https://hook.eu2.make.com/PLACEHOLDER'
 
@@ -46,6 +47,7 @@ export default function ValoracionForm() {
           email: form.email,
         }),
       })
+      pushEvent('conversion_valoracion', { form_type: 'valoracion' })
       setStatus('success')
     } catch {
       setStatus('error')

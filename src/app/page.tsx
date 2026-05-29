@@ -7,6 +7,7 @@ import FAQAccordion from '@/components/FAQAccordion'
 import { FAQS } from '@/lib/faq-data'
 import ContactForm from '@/components/ContactForm'
 import ScrollFadeIn from '@/components/ScrollFadeIn'
+import AgendarButton from '@/components/AgendarButton'
 
 export const metadata: Metadata = {
   title: 'Herohome — Vende tu piso sin agencia | Comisión 0%',
@@ -290,15 +291,7 @@ export default function HomePage() {
                 <p style={{ fontSize: 14, color: 'rgba(255,255,255,0.6)', lineHeight: 1.7, margin: '0 0 24px' }}>
                   Agenda una llamada con un agente de Herohome cuando mejor te venga.
                 </p>
-                <a
-                  href="https://calendar.app.google/FpfGsprsuqozfMUz7"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="btn-outline-violet"
-                  data-gtm="cta-agendar-llamada"
-                >
-                  Agendar llamada →
-                </a>
+                <AgendarButton />
               </div>
             </div>
           </div>

@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, FormEvent } from 'react'
+import { pushEvent } from '@/lib/gtm'
 
 const WEBHOOK_URL = 'https://hook.eu2.make.com/PLACEHOLDER'
 
@@ -21,6 +22,7 @@ export default function ContactForm() {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ source: 'web-contacto', ...form }),
       })
+      pushEvent('conversion_contacto', { form_type: 'contacto' })
       setStatus('success')
     } catch {
       setStatus('error')
