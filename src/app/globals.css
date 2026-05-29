@@ -1,26 +1,176 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@theme {
+  --color-violet: #5B5CFF;
+  --color-violet-dark: #3C3ECC;
+  --color-violet-light: #EEEEFF;
+  --color-ink: #0A0E17;
+  --color-ink-2: #1C2333;
+  --color-teal: #0EA5A0;
+  --color-teal-light: #E0F7F6;
+  --color-surface: #F8FAFC;
+  --color-slate: #64748B;
+  --color-border: #E2E8F0;
+  --color-error: #E05353;
+  --color-warning: #C2620A;
+  --font-sans: 'Inter', ui-sans-serif, system-ui, sans-serif;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  *, *::before, *::after { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: var(--font-sans);
+    font-size: 16px;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+    line-height: 1.75;
+    color: var(--color-ink);
+    background: var(--color-surface);
+    -webkit-font-smoothing: antialiased;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+@layer utilities {
+  .eyebrow {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-violet);
+  }
+  .display-text {
+    font-size: clamp(40px, 5.5vw, 60px);
+    font-weight: 700;
+    letter-spacing: -0.04em;
+    line-height: 1.0;
+  }
+  .h1-text {
+    font-size: clamp(28px, 3.5vw, 38px);
+    font-weight: 600;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+  }
+  .h2-text {
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-weight: 600;
+    letter-spacing: -0.025em;
+    line-height: 1.2;
+  }
+  .h3-text {
+    font-size: clamp(16px, 1.8vw, 19px);
+    font-weight: 600;
+    letter-spacing: -0.02em;
+    line-height: 1.3;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: var(--color-violet);
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 11px 22px;
+    border-radius: 7px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.15s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-primary:hover { background: var(--color-violet-dark); }
+
+  .btn-secondary {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: var(--color-ink);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 11px 22px;
+    border-radius: 7px;
+    border: 1.5px solid var(--color-border);
+    cursor: pointer;
+    transition: border-color 0.15s, color 0.15s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-secondary:hover { border-color: var(--color-violet); color: var(--color-violet); }
+
+  .btn-outline-violet {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: transparent;
+    color: var(--color-violet);
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    padding: 11px 22px;
+    border-radius: 7px;
+    border: 1.5px solid var(--color-violet);
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s;
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .btn-outline-violet:hover { background: var(--color-violet); color: #fff; }
+
+  .card {
+    border-radius: 12px;
+    border: 1px solid var(--color-border);
+    background: #fff;
+  }
+
+  .input-base {
+    width: 100%;
+    padding: 12px 16px;
+    border-radius: 7px;
+    border: 1px solid var(--color-border);
+    font-size: 15px;
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: #fff;
+    outline: none;
+    transition: border-color 0.15s, box-shadow 0.15s;
+  }
+  .input-base:focus {
+    border-color: var(--color-violet);
+    box-shadow: 0 0 0 3px rgba(91,92,255,0.12);
+  }
+  .input-base::placeholder { color: var(--color-slate); }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .link-muted {
+    font-size: 13px;
+    color: rgba(255,255,255,0.45);
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.15s;
+  }
+  .link-muted:hover { color: #fff; }
+
+  .footer-link {
+    font-size: 13px;
+    color: rgba(255,255,255,0.55);
+    text-decoration: none;
+    transition: color 0.15s;
+  }
+  .footer-link:hover { color: #fff; }
 }
