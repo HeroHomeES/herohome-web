@@ -14,7 +14,7 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: '¿Herohome tiene contrato de exclusividad?',
-    answer: 'No. Puedes vender con Herohome y en paralelo explorar otras opciones. No te pedimos exclusividad, pero ten en cuenta una cosa: si vendes con Herohome pagas solo un 1%. Si vendes a través de una agencia, pagas la comisión que hayas acordado con la agencia, habitualmente entre el 4% y el 6%.',
+    answer: 'No. Puedes vender con Herohome y en paralelo explorar otras opciones. No te pedimos exclusividad, pero ten en cuenta una cosa: si vendes con Herohome pagas solo un 1%. Si vendes a través de una agencia, pagas la comisión que hayas acordado con la agencia, habitualmente entre el 4% y el 6%. Puedes cancelar nuestros servicios cuando quieras.',
   },
   {
     question: '¿Qué pasa si la venta no se cierra?',

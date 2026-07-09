@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
+import PhoneCaptureForm from '@/components/PhoneCaptureForm'
 
 export const metadata: Metadata = {
   title: 'Mi App',
@@ -352,8 +352,9 @@ export default function MiAppPage() {
           <div style={{ position: 'absolute', inset: 0, pointerEvents: 'none', background: 'radial-gradient(50% 120% at 50% 0%, rgba(91,92,255,0.12) 0%, rgba(91,92,255,0) 70%)' }} />
           <div style={{ position: 'relative', maxWidth: 560, margin: '0 auto' }}>
             <h2 className="h1-text" style={{ color: '#F8FAFC' }}>¿Listo para vender con tu equipo de IA?</h2>
-            <p style={{ margin: '14px 0 30px', fontSize: 16, color: 'rgba(248,250,252,0.5)' }}>Empieza con una valoración gratuita y te damos acceso al portal del vendedor.</p>
-            <Link href="/valoracion" className="btn-primary" data-gtm="cta-valorar-miapp" style={{ padding: '14px 32px' }}>Valorar mi vivienda →</Link>
+            <p style={{ margin: '14px 0 32px', fontSize: 16, color: 'rgba(248,250,252,0.5)' }}>Déjanos tu teléfono y te llamamos sin compromiso.</p>
+            <PhoneCaptureForm />
+            <p style={{ marginTop: 16, fontSize: 12, color: 'rgba(255,255,255,0.3)' }}>Sin compromiso · Sin tarjeta de crédito · Respuesta en menos de 24 h</p>
           </div>
         </section>
       </main>

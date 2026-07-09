@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import type { ReactNode } from 'react'
 import Link from 'next/link'
 import Navbar from '@/components/Navbar'
 import Footer from '@/components/Footer'
@@ -28,10 +29,10 @@ const faqSchema = {
 const PORTALS = ['Idealista', 'Fotocasa', 'Habitaclia', 'Pisos.com', 'Yaencontre']
 
 const STEPS = [
-  { n: '01', title: 'Publicas en 48h', desc: 'Subes los datos de tu vivienda. Hero analiza el mercado, redacta el anuncio y lo publica en todos los portales en menos de 48 horas.' },
-  { n: '02', title: 'Hero filtra los compradores', desc: 'Cada interesado pasa por Hero antes de llegar a ti. Responde preguntas, agenda visitas y descarta perfiles no serios.' },
+  { n: '01', title: 'Publicas en 48h', desc: 'Nos hablas de tu vivienda, analizamos el mercado, redactamos el anuncio y se publica en todos los portales en 48 horas.' },
+  { n: '02', title: 'Hero filtra los compradores', desc: 'Cada interesado pasa por Hero antes de llegar a ti. Responde a los interesados en menos de 1 minuto 24x7, agenda visitas, descarta perfiles no serios y contacta con los interesados después de la visita. Tú solo enseñas la vivienda.' },
   { n: '03', title: 'Gestionas desde el móvil', desc: 'Confirmas visitas, recibes ofertas y hablas con Hero en tiempo real. Sin llamadas de agente, sin emails interminables.' },
-  { n: '04', title: 'Cierras la venta', desc: 'Cuando aceptas una oferta, un agente humano gestiona el contrato de arras y la firma digital. Tú solo firmas desde tu sofá.' },
+  { n: '04', title: 'Cierras la venta', desc: 'Negocias desde el móvil. Cuando aceptas una oferta, tu agente personal gestiona el contrato de arras y la firma digital. Tú solo firmas desde tu sofá.' },
 ]
 
 const HERO_FEATURES = [
@@ -148,48 +149,63 @@ function LoginMockup() {
   )
 }
 
-/* ── WhatsApp chat mockup ── */
-function WhatsAppChatMockup() {
+/* ── App chat mockup (interfaz de la app, misma conversación) ── */
+function AppTab({ label, active, children }: { label: string; active?: boolean; children: ReactNode }) {
+  const color = active ? 'var(--color-violet)' : '#94A3B8'
   return (
-    <div style={{ width: 296, borderRadius: 36, border: '4px solid #1a1a1a', background: '#111', padding: 12, boxShadow: '0 0 60px rgba(0,0,0,0.5), 0 0 40px rgba(91,92,255,0.06)' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', padding: '0 8px', marginBottom: 10 }}>
-        <span style={{ fontSize: 10, fontWeight: 500, color: 'rgba(255,255,255,0.45)' }}>9:41</span>
-        <div style={{ display: 'flex', gap: 3 }}>
-          <span style={{ width: 3, height: 3, borderRadius: 99, background: 'rgba(255,255,255,0.4)' }} />
-          <span style={{ width: 3, height: 3, borderRadius: 99, background: 'rgba(255,255,255,0.4)' }} />
+    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: 3, fontSize: 10, fontWeight: 500, color, width: 62 }}>
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke={color} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">{children}</svg>
+      {label}
+    </div>
+  )
+}
+
+function AppChatMockup() {
+  return (
+    <div style={{ width: 300, height: 600, background: 'var(--color-surface)', borderRadius: 34, border: '4px solid var(--color-ink-2)', overflow: 'hidden', display: 'flex', flexDirection: 'column', boxShadow: '0 0 60px rgba(91,92,255,0.08), 0 40px 80px rgba(0,0,0,0.45)' }}>
+      {/* App navbar */}
+      <div style={{ height: 52, background: '#111827', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '0 16px' }}>
+        <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
+          <svg width="18" height="24" viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <rect x="10" y="6" width="12" height="52" rx="5" fill="url(#home-pl)" />
+            <rect x="30" y="18" width="12" height="40" rx="5" fill="url(#home-pr)" />
+          </svg>
+          <span style={{ fontSize: 15, fontWeight: 600, letterSpacing: '-0.03em', color: '#F8FAFC' }}>Herohome</span>
+        </div>
+        <div style={{ position: 'relative', display: 'flex', padding: 6 }}>
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="rgba(255,255,255,0.7)" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9" /><path d="M13.73 21a2 2 0 0 1-3.46 0" /></svg>
+          <span style={{ position: 'absolute', top: 4, right: 4, width: 8, height: 8, borderRadius: 99, background: 'var(--color-violet)', border: '2px solid #111827' }} />
         </div>
       </div>
-      <div style={{ background: '#1F2C34', borderRadius: 12, padding: '10px 14px', marginBottom: 2, display: 'flex', alignItems: 'center', gap: 10 }}>
-        <div style={{ width: 36, height: 36, borderRadius: 99, background: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0, fontSize: 16 }}>🤖</div>
-        <div>
-          <p style={{ fontSize: 13, fontWeight: 600, color: '#fff', margin: 0 }}>Hero · Herohome</p>
-          <p style={{ fontSize: 11, color: 'rgba(255,255,255,0.5)', margin: 0 }}>en línea</p>
-        </div>
-      </div>
-      <div style={{ background: '#0B141A', borderRadius: 12, padding: '14px 10px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-        <div style={{ alignSelf: 'center', background: 'rgba(255,255,255,0.07)', borderRadius: 99, padding: '3px 10px', fontSize: 10, color: 'rgba(255,255,255,0.45)', marginBottom: 4 }}>Hoy</div>
+      {/* Chat */}
+      <div style={{ flex: 1, overflow: 'hidden', padding: 16, display: 'flex', flexDirection: 'column', gap: 12, background: 'var(--color-surface)' }}>
+        <span style={{ alignSelf: 'center', fontSize: 11, fontWeight: 500, color: '#94A3B8' }}>Hoy, 7 de julio</span>
         {WA_MSGS.map((msg, i) => (
-          <div key={i} style={{
-            alignSelf: msg.from === 'user' ? 'flex-end' : 'flex-start',
-            maxWidth: '86%',
-            background: msg.from === 'user' ? '#005C4B' : '#1F2C34',
-            borderRadius: msg.from === 'user' ? '12px 12px 2px 12px' : '12px 12px 12px 2px',
-            padding: '8px 12px',
-            boxShadow: '0 1px 2px rgba(0,0,0,0.3)',
-          }}>
-            {msg.from === 'hero' && <p style={{ fontSize: 11, fontWeight: 600, color: '#25D366', margin: '0 0 3px' }}>Hero</p>}
-            <p style={{ fontSize: 12, lineHeight: 1.6, color: 'rgba(255,255,255,0.92)', margin: 0 }}>{msg.text}</p>
-            <p style={{ fontSize: 10, color: 'rgba(255,255,255,0.35)', textAlign: 'right', margin: '3px 0 0' }}>
-              {msg.time}{msg.from === 'user' && <span style={{ marginLeft: 4, color: '#53BDEB' }}>✓✓</span>}
-            </p>
-          </div>
+          msg.from === 'hero' ? (
+            <div key={i} style={{ display: 'flex', gap: 8, alignItems: 'flex-end' }}>
+              <div style={{ width: 26, height: 26, borderRadius: 99, background: 'var(--color-violet)', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <svg width="13" height="13" viewBox="0 0 64 64" fill="none"><rect x="10" y="6" width="12" height="52" rx="5" fill="rgba(255,255,255,0.9)" /><rect x="30" y="18" width="12" height="40" rx="5" fill="rgba(255,255,255,0.65)" /></svg>
+              </div>
+              <div style={{ background: '#fff', border: '1px solid var(--color-border)', borderRadius: '16px 16px 16px 4px', padding: '10px 14px', fontSize: 13.5, lineHeight: 1.55, color: 'var(--color-ink)', maxWidth: 220 }}>{msg.text}</div>
+            </div>
+          ) : (
+            <div key={i} style={{ background: 'var(--color-violet)', color: '#fff', borderRadius: '16px 16px 4px 16px', padding: '10px 14px', fontSize: 13.5, lineHeight: 1.55, maxWidth: 215, marginLeft: 'auto' }}>{msg.text}</div>
+          )
         ))}
       </div>
-      <div style={{ display: 'flex', alignItems: 'center', gap: 8, marginTop: 8, background: '#1F2C34', borderRadius: 99, padding: '8px 12px' }}>
-        <span style={{ flex: 1, fontSize: 11, color: 'rgba(255,255,255,0.3)' }}>Mensaje</span>
-        <div style={{ width: 28, height: 28, borderRadius: 99, background: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2.5" strokeLinecap="round"><path d="M5 12h14M12 5l7 7-7 7" /></svg>
+      {/* Input */}
+      <div style={{ borderTop: '1px solid var(--color-border)', background: '#fff', padding: '10px 12px', display: 'flex', gap: 8, alignItems: 'center', flexShrink: 0 }}>
+        <div style={{ flex: 1, border: '1px solid var(--color-border)', borderRadius: 20, padding: '10px 16px', fontSize: 13, color: '#94A3B8' }}>Escribe un mensaje…</div>
+        <div style={{ width: 38, height: 38, borderRadius: 99, background: 'var(--color-violet)', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="#fff" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><line x1="22" y1="2" x2="11" y2="13" /><polygon points="22 2 15 22 11 13 2 9 22 2" /></svg>
         </div>
+      </div>
+      {/* Tab bar */}
+      <div style={{ height: 56, background: '#fff', borderTop: '1px solid var(--color-border)', flexShrink: 0, display: 'flex', justifyContent: 'space-around', alignItems: 'center' }}>
+        <AppTab label="Hero" active><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z" /></AppTab>
+        <AppTab label="Vivienda"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" /><polyline points="9 22 9 12 15 12 15 22" /></AppTab>
+        <AppTab label="Visitas"><rect x="3" y="4" width="18" height="18" rx="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></AppTab>
+        <AppTab label="Ofertas"><path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z" /><line x1="7" y1="7" x2="7.01" y2="7" /></AppTab>
       </div>
     </div>
   )
@@ -218,7 +234,7 @@ export default function HomePage() {
                 <Link href="/valoracion" className="btn-primary" data-gtm="cta-valorar-hero" style={{ padding: '12px 28px' }}>
                   Obtener valoración gratuita →
                 </Link>
-                <Link href="#como-funciona" className="btn-secondary" style={{ padding: '12px 28px', color: '#F8FAFC', borderColor: 'rgba(255,255,255,0.14)' }}>
+                <Link href="/mi-app" className="btn-secondary" style={{ padding: '12px 28px', color: '#F8FAFC', borderColor: 'rgba(255,255,255,0.14)' }}>
                   Ver cómo funciona Hero
                 </Link>
               </div>
@@ -366,15 +382,10 @@ export default function HomePage() {
         <section style={{ background: '#111827', padding: '96px 24px' }}>
           <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <ScrollFadeIn>
-              <div style={{ textAlign: 'center', marginBottom: 20 }}>
+              <div style={{ textAlign: 'center', marginBottom: 48 }}>
                 <p className="eyebrow" style={{ marginBottom: 14 }}>Propietarios</p>
                 <h2 className="h1-text" style={{ color: '#F8FAFC' }}>Lo que dicen quienes ya vendieron</h2>
               </div>
-              <p style={{ textAlign: 'center', marginBottom: 48 }}>
-                <span style={{ display: 'inline-block', fontSize: 11, fontWeight: 600, letterSpacing: '0.06em', textTransform: 'uppercase', color: '#C2620A', background: 'rgba(194,98,10,0.12)', border: '1px solid rgba(194,98,10,0.3)', borderRadius: 99, padding: '4px 12px' }}>
-                  Ejemplos ilustrativos · pendiente de testimonios reales
-                </span>
-              </p>
             </ScrollFadeIn>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(260px,1fr))', gap: 20 }}>
               {TESTIMONIALS.map((t, i) => (
@@ -404,7 +415,7 @@ export default function HomePage() {
               <p className="eyebrow" style={{ marginBottom: 14 }}>Siempre disponible</p>
               <h2 className="h1-text" style={{ color: '#F8FAFC', marginBottom: 16 }}>Hero no descansa.<br />Tú sí puedes.</h2>
               <p style={{ fontSize: 15, lineHeight: 1.75, color: 'rgba(248,250,252,0.55)', marginBottom: 24 }}>
-                Habla con Hero por WhatsApp como lo harías con cualquier persona. Pregunta, cambia planes, pide información — a cualquier hora del día.
+                Habla con Hero desde tu app como lo harías con cualquier persona. Pregunta, cambia planes, pide información — a cualquier hora del día.
               </p>
               <div style={{ display: 'flex', flexDirection: 'column', gap: 12 }}>
                 {['Disponible 24/7, incluso festivos', 'Responde en segundos, no en horas', 'Gestiona cambios sin llamadas ni emails'].map(f => (
@@ -416,7 +427,7 @@ export default function HomePage() {
               </div>
             </ScrollFadeIn>
             <div style={{ display: 'flex', justifyContent: 'center' }}>
-              <WhatsAppChatMockup />
+              <AppChatMockup />
             </div>
           </div>
         </section>

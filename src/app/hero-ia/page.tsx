@@ -45,15 +45,6 @@ const FEATURES = [
   },
 ]
 
-const WHATSAPP_CHAT = [
-  { from: 'hero', text: '¡Buenas! Tienes una nueva oferta de 270.000 €. He analizado 12 operaciones similares en tu zona — el precio está un 9% por debajo de mercado. ¿Quieres que les pida una contraoferta?' },
-  { from: 'user', text: 'Sí, diles 285.000 y que incluya plaza de garaje.' },
-  { from: 'hero', text: 'Perfecto. Les he enviado la contraoferta con las condiciones. Te aviso cuando respondan.' },
-  { from: 'hero', text: 'Han aceptado 283.000 € con garaje. 🎉 ¿Procedo a preparar el contrato de arras?' },
-  { from: 'user', text: '¡Sí! Adelante.' },
-  { from: 'hero', text: 'Listo. Tu agente de Herohome te llamará mañana para coordinar la firma. Lo tienes todo bajo control.' },
-]
-
 export default function HeroIAPage() {
   return (
     <>
@@ -70,21 +61,11 @@ export default function HeroIAPage() {
                   <span style={{ color: 'var(--color-violet)' }}>Hero</span>
                 </h1>
                 <p style={{ fontSize: 17, color: 'rgba(255,255,255,0.7)', lineHeight: 1.7, marginBottom: 32, maxWidth: 480 }}>
-                  Hero no es un chatbot. Es un agente que trabaja activamente en tu venta: filtra compradores, coordina visitas, analiza ofertas y te notifica por WhatsApp en tiempo real.
+                  Hero no es un chatbot. Es un agente que trabaja activamente en tu venta las 24 horas: filtra compradores, coordina visitas, analiza ofertas y te notifica por tu app en tiempo real.
                 </p>
                 <div style={{ display: 'flex', flexWrap: 'wrap', gap: 12 }}>
-                  <Link href="/valoracion" className="btn-primary" style={{ fontSize: 15, padding: '13px 24px' }}>
+                  <a href="https://app.herohome.es" className="btn-primary" style={{ fontSize: 15, padding: '13px 24px' }} data-gtm="cta-app">
                     Empezar con Hero →
-                  </Link>
-                  <a
-                    href="https://wa.me/34630751595"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="btn-secondary"
-                    style={{ fontSize: 15, padding: '13px 24px', color: 'rgba(255,255,255,0.8)', borderColor: 'rgba(255,255,255,0.2)' }}
-                    data-gtm="cta-whatsapp"
-                  >
-                    Hablar con Hero
                   </a>
                 </div>
               </div>
@@ -105,7 +86,7 @@ export default function HeroIAPage() {
                   Te avisa antes de que necesites preguntar
                 </h2>
                 <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.6)', lineHeight: 1.75 }}>
-                  Hero monitoriza tu venta constantemente. Cada visita, oferta o novedad te llega por WhatsApp al instante, con el contexto que necesitas para tomar la mejor decisión.
+                  Hero monitoriza tu venta constantemente. Cada visita, oferta o novedad te llega a tu aplicación al instante, con el contexto que necesitas para tomar la mejor decisión.
                 </p>
               </ScrollFadeIn>
               <div>
@@ -135,55 +116,6 @@ export default function HeroIAPage() {
                   </div>
                 </ScrollFadeIn>
               ))}
-            </div>
-          </div>
-        </section>
-
-        {/* WhatsApp conversación */}
-        <section style={{ background: 'var(--color-ink)', padding: '96px 24px' }}>
-          <div style={{ maxWidth: 1100, margin: '0 auto' }}>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 64, alignItems: 'center' }}>
-              <ScrollFadeIn>
-                <p className="eyebrow" style={{ color: 'rgba(165,166,255,0.9)', marginBottom: 12 }}>WhatsApp nativo</p>
-                <h2 className="h1-text" style={{ color: '#fff', marginBottom: 16 }}>
-                  La negociación, por WhatsApp
-                </h2>
-                <p style={{ fontSize: 16, color: 'rgba(255,255,255,0.6)', lineHeight: 1.75 }}>
-                  No hace falta que instales nada ni aprendas ninguna app nueva. Hero vive en tu WhatsApp. Tú decides, Hero ejecuta.
-                </p>
-              </ScrollFadeIn>
-              <div>
-                {/* WhatsApp mockup */}
-                <div style={{ background: '#e5ddd5', borderRadius: 16, overflow: 'hidden', maxWidth: 340, margin: '0 auto', boxShadow: '0 30px 60px rgba(0,0,0,0.5)' }}>
-                  <div style={{ background: '#075E54', padding: '12px 16px', display: 'flex', alignItems: 'center', gap: 10 }}>
-                    <div style={{ width: 36, height: 36, borderRadius: '50%', background: '#25D366', display: 'flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>
-                      <span style={{ fontSize: 16 }}>🏠</span>
-                    </div>
-                    <div>
-                      <p style={{ margin: 0, fontSize: 13, fontWeight: 600, color: '#fff' }}>Hero — Herohome</p>
-                      <p style={{ margin: 0, fontSize: 11, color: 'rgba(255,255,255,0.6)' }}>en línea</p>
-                    </div>
-                  </div>
-                  <div style={{ padding: '16px 12px', display: 'flex', flexDirection: 'column', gap: 8, background: '#e5ddd5', backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'40\' height=\'40\' viewBox=\'0 0 40 40\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cpath d=\'M0 40L40 0H20L0 20M40 40V20L20 40\' fill=\'%23000\' fill-opacity=\'0.02\'/%3E%3C/svg%3E")' }}>
-                    {WHATSAPP_CHAT.map((msg, i) => (
-                      <div key={i} style={{ display: 'flex', justifyContent: msg.from === 'user' ? 'flex-end' : 'flex-start' }}>
-                        <div style={{
-                          maxWidth: '80%',
-                          padding: '8px 10px',
-                          borderRadius: msg.from === 'user' ? '8px 8px 2px 8px' : '8px 8px 8px 2px',
-                          background: msg.from === 'user' ? '#dcf8c6' : '#fff',
-                          fontSize: 12,
-                          lineHeight: 1.5,
-                          color: '#111',
-                          boxShadow: '0 1px 1px rgba(0,0,0,0.1)',
-                        }}>
-                          {msg.text}
-                        </div>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-              </div>
             </div>
           </div>
         </section>
