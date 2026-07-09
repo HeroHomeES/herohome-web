@@ -6,8 +6,9 @@ import Logo from './Logo'
 
 const NAV_LINKS = [
   { label: 'Cómo funciona', href: '/#como-funciona' },
-  { label: 'Precios', href: '/#precios' },
+  { label: 'Comisión', href: '/#precios' },
   { label: 'Hero IA', href: '/hero-ia' },
+  { label: 'Mi app', href: '/mi-app' },
   { label: 'FAQ', href: '/#faq' },
 ]
 
@@ -48,7 +49,7 @@ export default function Navbar() {
           </Link>
 
           {/* Desktop nav */}
-          <div style={{ display: 'flex', alignItems: 'center', gap: 32 }} className="hidden md:flex">
+          <div style={{ alignItems: 'center', gap: 32 }} className="hidden md:flex">
             {NAV_LINKS.map(link => (
               <Link
                 key={link.href}
@@ -74,7 +75,7 @@ export default function Navbar() {
           <button
             onClick={() => setOpen(!open)}
             aria-label={open ? 'Cerrar menú' : 'Abrir menú'}
-            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, color: '#fff', display: 'flex', flexDirection: 'column', gap: 5 }}
+            style={{ background: 'none', border: 'none', cursor: 'pointer', padding: 8, color: '#fff', flexDirection: 'column', gap: 5 }}
             className="flex md:hidden"
           >
             <span style={{ display: 'block', width: 22, height: 2, background: '#fff', transition: 'transform 0.2s', transform: open ? 'rotate(45deg) translate(4px, 7px)' : 'none' }}/>

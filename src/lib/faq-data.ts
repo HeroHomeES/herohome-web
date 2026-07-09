@@ -10,14 +10,14 @@ export const FAQS: FAQItem[] = [
   },
   {
     question: '¿Cuánto cuesta vender un piso con una agencia inmobiliaria?',
-    answer: 'Las agencias inmobiliarias en España cobran entre el 4% y el 6% del precio de venta al propietario. En un piso de 300.000 €, eso equivale a entre 12.000 € y 18.000 €. Con Herohome, la primera venta es completamente gratuita (comisión 0%) para el vendedor, únicamente cobramos un 1% al comprador. A partir de la segunda, Herohome cobra el 1% del precio de venta al propietario y 1% al comprador, muy por debajo de las comisiones de las agencias.',
+    answer: 'Las agencias inmobiliarias en España cobran entre el 4% y el 6% del precio de venta al propietario. En un piso de 300.000 €, eso equivale a entre 12.000 € y 18.000 €. Con Herohome cobramos lo mismo a las dos partes: un 1% al vendedor y un 1% al comprador, sin letra pequeña ni comisiones ocultas. Muy por debajo de lo que cobra una agencia tradicional.',
   },
   {
     question: '¿Herohome tiene contrato de exclusividad?',
-    answer: 'No. Puedes vender con Herohome y en paralelo explorar otras opciones. No te pedimos exclusividad, pero ten en cuenta una cosa: si vendes con Herohome, no pagas nada. Si vendes a través de una agencia, pagas la comisión que hayas acordado con la agencia.',
+    answer: 'No. Puedes vender con Herohome y en paralelo explorar otras opciones. No te pedimos exclusividad, pero ten en cuenta una cosa: si vendes con Herohome pagas solo un 1%. Si vendes a través de una agencia, pagas la comisión que hayas acordado con la agencia, habitualmente entre el 4% y el 6%.',
   },
   {
-    question: '¿Qué pasa si mi primera venta no se cierra?',
+    question: '¿Qué pasa si la venta no se cierra?',
     answer: 'No pagas nada. Herohome solo cobra comisión cuando la venta se cierra. Sin venta, sin coste.',
   },
   {

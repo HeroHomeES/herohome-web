@@ -9,11 +9,10 @@ function formatEur(n: number) {
 
 export default function SavingsCalculator() {
   const [price, setPrice] = useState(300000)
-  const [firstSale, setFirstSale] = useState(true)
 
-  const agencyFeeMin = price * 0.03
-  const agencyFeeMax = price * 0.05
-  const heroFee = firstSale ? 0 : price * 0.01
+  const agencyFeeMin = price * 0.04
+  const agencyFeeMax = price * 0.06
+  const heroFee = price * 0.01
   const saving = Math.round((agencyFeeMin + agencyFeeMax) / 2 - heroFee)
 
   const handleSlider = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
@@ -92,32 +91,24 @@ export default function SavingsCalculator() {
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12, marginBottom: 20 }}>
         <div style={{ background: 'var(--color-surface)', borderRadius: 10, padding: '16px', border: '1px solid var(--color-border)' }}>
           <p style={{ fontSize: 11, fontWeight: 600, color: 'var(--color-slate)', margin: '0 0 6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Agencia trad.</p>
-          <p style={{ fontSize: 13, fontWeight: 500, color: 'var(--color-slate)', margin: '0 0 4px' }}>3–5%</p>
+          <p style={{ fontSize: 13, fontWeight: 500, color: 'var(--color-slate)', margin: '0 0 4px' }}>4–6%</p>
           <p style={{ fontSize: 20, fontWeight: 700, color: 'var(--color-error)', margin: 0, letterSpacing: '-0.02em' }}>
             {formatEur(agencyFeeMin)}–{formatEur(agencyFeeMax)}
           </p>
         </div>
         <div style={{ background: 'var(--color-teal-light)', borderRadius: 10, padding: '16px', border: '1px solid #b2e8e5' }}>
           <p style={{ fontSize: 11, fontWeight: 600, color: 'var(--color-teal)', margin: '0 0 6px', textTransform: 'uppercase', letterSpacing: '0.08em' }}>Herohome</p>
-          <p style={{ fontSize: 13, fontWeight: 500, color: 'var(--color-teal)', margin: '0 0 4px' }}>{firstSale ? 'Gratis' : '1%'}</p>
+          <p style={{ fontSize: 13, fontWeight: 500, color: 'var(--color-teal)', margin: '0 0 4px' }}>1% vendedor</p>
           <p style={{ fontSize: 20, fontWeight: 700, color: 'var(--color-teal)', margin: 0, letterSpacing: '-0.02em' }}>
-            {firstSale ? '0 €' : formatEur(heroFee)}
+            {formatEur(heroFee)}
           </p>
         </div>
       </div>
 
-      {/* Checkbox */}
-      <label style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 20, cursor: 'pointer' }}>
-        <input
-          type="checkbox"
-          checked={firstSale}
-          onChange={e => setFirstSale(e.target.checked)}
-          style={{ width: 16, height: 16, accentColor: 'var(--color-violet)', cursor: 'pointer' }}
-        />
-        <span style={{ fontSize: 13, fontWeight: 500, color: 'var(--color-slate)' }}>
-          Promoción primera vivienda gratis
-        </span>
-      </label>
+      {/* Nota */}
+      <p style={{ fontSize: 12, color: 'var(--color-slate)', margin: '0 0 20px', lineHeight: 1.6 }}>
+        Comisión del 1% para el vendedor y otro 1% para el comprador. Sin comisiones ocultas.
+      </p>
 
       {/* Savings */}
       <div style={{ background: 'var(--color-violet-light)', borderRadius: 10, padding: '16px 20px', marginBottom: 20 }}>

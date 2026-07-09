@@ -13,10 +13,10 @@ const inter = Inter({
 export const metadata: Metadata = {
   metadataBase: new URL('https://herohome.es'),
   title: {
-    default: 'Herohome — Vende tu piso sin agencia | Comisión 0%',
+    default: 'Herohome — Vende tu piso con IA | Comisión 1%',
     template: '%s | Herohome',
   },
-  description: 'Publica tu vivienda en Idealista y Fotocasa en 48h. Sin agencia, sin comisión en tu primera venta. Primer agente inmobiliario IA de España.',
+  description: 'Vende tu vivienda con Hero, tu agente inmobiliario IA. Gestiona visitas, filtra compradores y analiza ofertas por ti. Comisión del 1% para vendedor y comprador, sin sorpresas.',
   robots: { index: true, follow: true },
   alternates: { canonical: 'https://herohome.es/' },
   openGraph: {
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     locale: 'es_ES',
     url: 'https://herohome.es',
     siteName: 'Herohome',
-    title: 'Herohome — Vende tu piso sin agencia | Comisión 0%',
-    description: 'Publica tu vivienda en Idealista y Fotocasa en 48h. Sin agencia, sin comisión en tu primera venta.',
+    title: 'Herohome — Vende tu piso con IA | Comisión 1%',
+    description: 'Vende tu vivienda con Hero, tu agente inmobiliario IA. Comisión del 1% para vendedor y comprador, sin sorpresas.',
   },
 }
 
@@ -34,7 +34,7 @@ const organizationSchema = {
   '@type': 'Organization',
   name: 'Herohome',
   url: 'https://herohome.es',
-  description: 'Plataforma digital para vender viviendas sin agencia inmobiliaria en España. Comisión 0% en la primera venta.',
+  description: 'Plataforma digital para vender viviendas en España con un agente inmobiliario IA. Comisión del 1% para vendedor y comprador.',
   areaServed: 'España',
   serviceType: 'Compraventa inmobiliaria sin intermediarios',
   contactPoint: {

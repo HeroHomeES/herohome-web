@@ -10,6 +10,9 @@ export default function Footer() {
             <Logo />
           </Link>
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', gap: 24 }}>
+            <Link href="/mi-app" className="footer-link">
+              Mi app
+            </Link>
             <Link href="/politica-de-privacidad" target="_blank" rel="noopener" className="footer-link">
               Política de privacidad
             </Link>
