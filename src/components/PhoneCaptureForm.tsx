@@ -15,11 +15,12 @@ export default function PhoneCaptureForm() {
     if (phone.trim().length < 9) return
     setStatus('loading')
     try {
-      await fetch(API_URL, {
+      const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ telefono: phone, origen: 'landing-cta-final' }),
       })
+      if (!res.ok) throw new Error('request failed')
       pushEvent('conversion_contacto', { form_type: 'cta-telefono' })
       setStatus('success')
     } catch {

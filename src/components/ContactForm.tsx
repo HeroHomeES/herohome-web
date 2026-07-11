@@ -17,11 +17,12 @@ export default function ContactForm() {
     e.preventDefault()
     setStatus('loading')
     try {
-      await fetch(API_URL, {
+      const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       })
+      if (!res.ok) throw new Error('request failed')
       pushEvent('conversion_contacto', { form_type: 'contacto' })
       setStatus('success')
     } catch {

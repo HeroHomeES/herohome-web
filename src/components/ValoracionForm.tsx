@@ -33,7 +33,7 @@ export default function ValoracionForm() {
     e.preventDefault()
     setStatus('loading')
     try {
-      await fetch(API_URL, {
+      const res = await fetch(API_URL, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -46,6 +46,7 @@ export default function ValoracionForm() {
           email: form.email,
         }),
       })
+      if (!res.ok) throw new Error('request failed')
       pushEvent('conversion_valoracion', { form_type: 'valoracion' })
       setStatus('success')
     } catch {
