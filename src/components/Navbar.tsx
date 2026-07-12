@@ -6,7 +6,7 @@ import Logo from './Logo'
 
 const NAV_LINKS = [
   { label: 'Cómo funciona', href: '/#como-funciona' },
-  { label: 'Comisión', href: '/#precios' },
+  { label: 'Honorarios', href: '/honorarios' },
   { label: 'Hero IA', href: '/hero-ia' },
   { label: 'Mi app', href: '/mi-app' },
   { label: 'FAQ', href: '/#faq' },

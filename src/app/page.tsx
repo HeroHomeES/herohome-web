@@ -353,8 +353,8 @@ export default function HomePage() {
                     ))}
                   </div>
                   <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', marginTop: 34 }}>
-                    <Link href="/valoracion" className="btn-primary" data-gtm="cta-valorar-precios" style={{ padding: '13px 32px' }}>
-                      Valorar mi vivienda gratis →
+                    <Link href="/honorarios" className="btn-primary" data-gtm="cta-honorarios-precios" style={{ padding: '13px 32px' }}>
+                      Más información →
                     </Link>
                     <p style={{ marginTop: 16, fontSize: 12, color: 'var(--color-slate)', textAlign: 'center' }}>Sin permanencia · Sin exclusividad forzosa · Cancela cuando quieras</p>
                   </div>
@@ -378,8 +378,8 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── S6: Testimonios (placeholder) ── */}
-        <section style={{ background: '#111827', padding: '96px 24px' }}>
+        {/* ── S6: Testimonios (oculto hasta tener testimonios reales autorizados) ── */}
+        <section style={{ display: 'none', background: '#111827', padding: '96px 24px' }}>
           <div style={{ maxWidth: 1200, margin: '0 auto' }}>
             <ScrollFadeIn>
               <div style={{ textAlign: 'center', marginBottom: 48 }}>

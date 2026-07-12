@@ -1,0 +1,36 @@
+# Herohome
+
+Herohome es la primera agencia inmobiliaria 100% digital de España. Los propietarios venden su vivienda con la ayuda de Hero, un agente de inteligencia artificial que atiende a los compradores por WhatsApp a cualquier hora, gestiona visitas y ofertas, y lo refleja todo en una app donde el propietario ve y decide cada paso. Detrás hay un equipo humano de especialistas que interviene en los momentos clave: valoración, contrato de arras y firma.
+
+## Comisión
+
+- 1% al vendedor sobre el precio de venta
+- 1% al comprador sobre el precio de compra
+- Sin letra pequeña, sin comisiones ocultas, sin permanencia
+- Solo se cobra si la venta se cierra
+
+## Qué incluye el 1% del vendedor
+
+- Publicación en Idealista, Fotocasa, Habitaclia, Pisos.com y Yaencontre en menos de 48 horas
+- Agente Hero IA disponible 24/7 para responder a interesados, agendar visitas y recoger feedback
+- Gestión de ofertas y contraofertas por escrito en la app
+- Firma digital del contrato de arras
+- Agente humano para el cierre y la firma ante notario
+
+## Cómo funciona
+
+1. El propietario firma con Herohome y recibe acceso a su app.
+2. Define su disponibilidad; la agenda de visitas se gestiona sola.
+3. La vivienda se publica en todos los portales en menos de 48 horas.
+4. Hero atiende a cada interesado al momento, cualifica, agenda y recoge datos.
+5. El propietario confirma cada visita con un toque desde su móvil.
+6. Las ofertas llegan por escrito; el propietario acepta, rechaza o contraoferta en la app.
+7. Con acuerdo cerrado, el equipo humano gestiona arras y firma.
+
+## Contacto
+
+- Web: https://herohome.es
+- Email: hola@herohome.es
+- Honorarios: https://herohome.es/honorarios
+- Valoración gratuita: https://herohome.es/valoracion
+- Agente IA (Hero): https://herohome.es/hero-ia
