@@ -52,9 +52,8 @@ const INCLUIDO = [
 ]
 
 const TESTIMONIALS = [
-  { quote: 'Hero me avisó de una oferta a las 11 de la noche. La confirmé desde el sofá en 30 segundos. Nunca había vendido tan rápido.', name: 'María G.', loc: 'Madrid', detail: 'Vendió en 18 días' },
-  { quote: 'Un agente que trabaja para ti a todas horas por solo un 1%. Sin sorpresas ni comisiones ocultas.', name: 'Javier R.', loc: 'Barcelona', detail: 'Ahorró 9.200 €' },
-  { quote: 'Lo que más me sorprendió fue tener toda la información en tiempo real. Sabía exactamente qué pasaba con mi piso.', name: 'Ana M.', loc: 'Valencia', detail: 'Comisión del 1%' },
+  { quote: 'Compré a través de Herohome y posteriormente vendí mi vivienda con Herohome y en ambos casos fue muy rápido. Alejandro me acompañó en todo momento y me hizo estar seguro e informado del proceso.', name: 'Francisco', role: 'Comprador y vendedor con Herohome' },
+  { quote: 'No quería pagar 24.000€ que me pedían las agencias inmobiliarias, busqué otra opción y encontré Herohome. Fue un proceso muy transparente desde el primer día y un ahorro importante.', name: 'Antonio', role: 'Vendedor con Herohome' },
 ]
 
 const WA_MSGS: { from: 'user' | 'hero'; text: string; time: string }[] = [
@@ -378,9 +377,9 @@ export default function HomePage() {
           </div>
         </section>
 
-        {/* ── S6: Testimonios (oculto hasta tener testimonios reales autorizados) ── */}
-        <section style={{ display: 'none', background: '#111827', padding: '96px 24px' }}>
-          <div style={{ maxWidth: 1200, margin: '0 auto' }}>
+        {/* ── S6: Testimonios ── */}
+        <section style={{ background: '#111827', padding: '96px 24px' }}>
+          <div style={{ maxWidth: 840, margin: '0 auto' }}>
             <ScrollFadeIn>
               <div style={{ textAlign: 'center', marginBottom: 48 }}>
                 <p className="eyebrow" style={{ marginBottom: 14 }}>Propietarios</p>
@@ -397,10 +396,7 @@ export default function HomePage() {
                       ))}
                     </div>
                     <p style={{ fontSize: 14, lineHeight: 1.7, color: 'rgba(248,250,252,0.75)', margin: 0 }}>“{t.quote}”</p>
-                    <div style={{ marginTop: 16 }}>
-                      <p style={{ fontSize: 13, fontWeight: 500, color: '#F8FAFC', margin: 0 }}>— {t.name}, {t.loc}</p>
-                      <p style={{ fontSize: 12, color: 'rgba(248,250,252,0.35)', margin: '2px 0 0' }}>{t.detail}</p>
-                    </div>
+                    <p style={{ marginTop: 16, fontSize: 13, fontWeight: 500, fontStyle: 'italic', color: '#F8FAFC' }}>- {t.name}, {t.role} -</p>
                   </div>
                 </ScrollFadeIn>
               ))}
